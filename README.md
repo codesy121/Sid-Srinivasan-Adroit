@@ -1,8 +1,8 @@
-# TinyURL POC — Quick Start
+# TinyURL POC - Quick Start
 
 A small proof-of-concept TinyURL service (backend: .NET 6, frontend: React + Vite).
 
-## Backend — what it does (5 steps)
+## Backend - what it does (5 steps)
 1. Accepts long URLs and returns a short code (POST /api/urls).
 2. Supports optional custom short codes and enforces uniqueness.
 3. Stores mappings in-memory and returns the caller's list of URLs (GET /api/urls).
@@ -10,12 +10,12 @@ A small proof-of-concept TinyURL service (backend: .NET 6, frontend: React + Vit
 5. Identifies callers via `X-Client-Id` (no accounts); same client + same long URL → same short code.
 
 ### API summary
-- POST /api/urls — body: { longUrl, customShortCode? } → create
-- DELETE /api/urls/{code} — remove mapping
-- GET /api/urls/{code} — get mapping (increments clicks)
-- GET /api/urls/{code}/stats — click stats
-- GET /api/urls — list mappings for caller (`X-Client-Id`)
-- GET /r/{code} — 302 redirect to long URL
+- POST /api/urls - body: { longUrl, customShortCode? } → create
+- DELETE /api/urls/{code} - remove mapping
+- GET /api/urls/{code} - get mapping (increments clicks)
+- GET /api/urls/{code}/stats - click stats
+- GET /api/urls - list mappings for caller (`X-Client-Id`)
+- GET /r/{code} - 302 redirect to long URL
 
 ### Run backend locally
 1. Open a terminal
@@ -27,7 +27,7 @@ Default API URLs: http://localhost:5000 and https://localhost:5001
 
 ---
 
-## Frontend — what it does and how to use it
+## Frontend - what it does and how to use it
 - Small React UI that creates short URLs, lists your URLs, shows stats, and follows redirects.
 - It generates/stores a UUID in `localStorage` and sends it as `X-Client-Id` on each request.
 
@@ -45,3 +45,4 @@ By default the UI calls the API at `http://localhost:5000`. To change: `VITE_API
 - Persistence is in-memory (for simplicity); restarting the backend clears data.
 - Concurrency handled via `ConcurrentDictionary` and `Interlocked.Increment` for counters.
 - There are unit tests in `backend/TinyUrl.Tests` for service logic.
+- GitHub Copilot used for code assistance, testing and cleanup purposes.
