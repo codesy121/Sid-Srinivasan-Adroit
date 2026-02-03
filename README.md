@@ -41,9 +41,7 @@ By default the UI calls the API at `http://localhost:5000`. To change: `VITE_API
 
 ---
 
-## Notes for developers
+## Notes
 - Persistence is in-memory (for simplicity); restarting the backend clears data.
 - Concurrency handled via `ConcurrentDictionary` and `Interlocked.Increment` for counters.
 - There are unit tests in `backend/TinyUrl.Tests` for service logic.
-
-If you want a deeper README (deploy, design decisions, tests), open an issue or drop a note in the repo.
